@@ -1,0 +1,178 @@
+* {
+    --gallery-color: #020852;
+    --gallery-accent: #cb0100;
+}
+
+gallery {
+    width: auto;
+    height: fit-content;
+    padding: 10px;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    color: var(--gallery-color);
+}
+
+gallery * {
+    display: block;
+}
+
+gallery img {
+    max-width: 100%;
+}
+
+gallery year > legend {
+    /* treat as h2 */
+    display: block;
+    width: auto;
+    font-size: 1.8em;
+    margin-top: 0;
+    margin-bottom: 0.2em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+gallery year > content:not([visible="true"]),
+gallery month > content:not([visible="true"]) {
+    display: none;
+}
+
+gallery > month {
+    display: flex;
+    flex-direction: column;
+}
+
+gallery month > legend {
+    width: 128px;
+    min-width: 128px;
+    height: 32px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 1.3em;
+    margin-top: 0;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 0;
+    font-weight: bold;
+    position: relative;
+    border: 1px solid var(--gallery-color);
+
+    cursor: pointer;
+}
+
+gallery year > legend:hover,
+gallery month > legend:hover {
+    color: var(--gallery-accent);
+}
+
+gallery month > legend::before {
+    content: "";
+    display: block;
+    width: 1px;
+    height: calc(100% + 10px + 2px);
+
+    position: absolute;
+    left: -10px;
+    top: -1px;
+
+    background-color: var(--gallery-color);
+}
+
+gallery month:last-child > legend::before {
+    height: calc(50% + 1px);
+}
+
+gallery month > legend::after {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 1px;
+
+    position: absolute;
+    left: -10px;
+    top: calc(50% - 0.5px);
+
+    background-color: var(--gallery-color);
+}
+
+gallery month > content {
+    width: auto;
+    flex-grow: 1;
+
+    padding: 10px;
+    border: 1px solid var(--gallery-color);
+    margin-left: 28px;
+    margin-bottom: 10px;
+
+    position: relative;
+    display: flex;
+    justify-content: left;
+    align-items: top;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+gallery month:not(:last-child) > content::before {
+    content: "";
+    display: block;
+    width: 1px;
+    height: calc(100% + 10px + 2px);
+
+    position: absolute;
+    left: -28px;
+    top: -1px;
+
+    background-color: var(--gallery-color);
+}
+
+gallery month > content::after {
+    content: "";
+    display: block;
+    width: 9px;
+    height: 20px;
+
+    position: absolute;
+    left: -10px;
+    top: -11px;
+
+    border-style: solid;
+    border-color: var(--gallery-color);
+    border-width: 0 0 1px 1px;
+}
+
+gallery month > content > sep {
+    width: 100%;
+    height: fit-content;
+    font-size: 1.3em;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+    position: relative;
+    border-bottom: 1px solid var(--gallery-color);
+}
+
+gallery month > content > img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    transition-duration: .1s;
+    border: 1px solid var(--gallery-color);
+    position: relative;
+
+    cursor: zoom-in;
+}
+
+gallery month > content > img:hover {
+    transform: scale(1.5);
+    z-index: 2147483647;
+}
