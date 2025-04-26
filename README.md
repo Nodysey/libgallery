@@ -22,6 +22,7 @@ Add the libGallery files to every page that contains a gallery.
 <gallery>
 
 </gallery>
+```
 `<year>` tags separate photos by year.
 ```html
 <gallery>
